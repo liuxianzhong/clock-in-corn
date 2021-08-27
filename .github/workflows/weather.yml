@@ -1,13 +1,13 @@
-name: 'WeatherActions'
+name: 'GitHub Actions Weather Bot'
  
 on:
   push:
   schedule:
-  # 定时任务，在1分钟推送天气信息到邮箱(需要打开schedule#cron表达式节点)
-    - cron: '* 0/2 * * * ? *'
+  # 定时任务，在每天的5点推送天气信息到邮箱
+    - cron: '0 21 * * *'
 
 jobs:
-  weather:
+  bot:
     runs-on: ubuntu-latest
     steps:
     # 首先copy git仓库到虚拟机上
@@ -32,5 +32,6 @@ jobs:
           subject: 天气预报 (${{env.REPORT_DATE}})
           body: file://result.html
           to: 2330996055@qq.com
-          from: GitHubActions
+          from: GitHub Actions
           content_type: text/html
+ 
