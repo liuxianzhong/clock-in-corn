@@ -9,7 +9,7 @@ jobs:
   bot:
     runs-on: ubuntu-latest
     steps:
-    # 首先copy git仓库到虚拟机上
+    # 首先copy git仓库到虚拟机上,然后执行
       - name: 'Checkout codes'
         uses: actions/checkout@v1
     # 执行仓库中的脚本文件
