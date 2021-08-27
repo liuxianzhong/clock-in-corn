@@ -3,7 +3,7 @@ name: 'MorningClockIn'
 on:
   # push: 打开这里就是一推送就执行一次
   schedule:
-    - cron: '36 0 * * 1-5'
+    - cron: '06 0 * * 1-5'
 
 jobs:
   morning:
