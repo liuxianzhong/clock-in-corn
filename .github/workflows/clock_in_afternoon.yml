@@ -30,6 +30,6 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: 打卡结果(${{env.REPORT_DATE}})
           body: file://result.txt
-          to: 326082040@qq.com
-          from: GitHubActions
+          to: 2330996055@qq.com
+          from: GitHub Actions
           content_type: text/html
