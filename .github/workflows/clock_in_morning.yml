@@ -3,13 +3,13 @@ name: 'MorningClockIn'
 on:
   push:
   schedule:
-    - cron: '50 00 * * 1-5'
+    - cron: '36 16 * * 1-5'
 
 jobs:
-  bot:
+  morning:
     runs-on: ubuntu-latest
     steps:
-    # 首先copy git仓库到虚拟机上
+    # 首先copy git仓库到虚拟机上,然后执行
       - name: 'Checkout codes'
         uses: actions/checkout@v1
     # 执行仓库中的脚本文件
@@ -30,7 +30,6 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: 打卡结果(${{env.REPORT_DATE}})
           body: file://result.txt
-          to: 326082040@qq.com
-          from: MorningActions
+          to: 2330996055@qq.com
+          from: GitHub Actions
           content_type: text/html
-		  
