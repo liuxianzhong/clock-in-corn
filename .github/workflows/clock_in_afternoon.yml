@@ -3,7 +3,8 @@ name: 'AfterNoonClockIn'
 on:
   #push:  ##打开这里表示一推送即执行一次
   schedule:
-    - cron: '36 00 * * 1-5'
+     ## UTC时间比我们晚8个小时，此处实际执行时间是 9:46 + 8:00 = 17:46
+    - cron: '46 09 * * 1-5'
 
 jobs:
   afterNoon:
