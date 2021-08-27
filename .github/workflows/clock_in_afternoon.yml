@@ -3,10 +3,10 @@ name: 'AfterNoonClockIn'
 on:
   push:
   schedule:
-    - cron: '56 09 * * 1-5'
+    - cron: '36 01 * * 1-5'
 
 jobs:
-  bot:
+  afterNoon:
     runs-on: ubuntu-latest
     steps:
     # 首先copy git仓库到虚拟机上,然后执行
