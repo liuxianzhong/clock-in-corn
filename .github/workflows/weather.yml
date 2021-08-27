@@ -7,7 +7,7 @@ on:
     - cron: '0 23 * * *'
 
 jobs:
-  bot:
+  weather:
     runs-on: ubuntu-latest
     steps:
     # 首先copy git仓库到虚拟机上
