@@ -1,7 +1,7 @@
 name: 'MorningClockIn'
  
 on:
-  push:
+  # push: 打开这里就是一推送就执行一次
   schedule:
     - cron: '36 16 * * 1-5'
 
