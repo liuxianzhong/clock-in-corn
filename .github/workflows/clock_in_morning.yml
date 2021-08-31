@@ -4,7 +4,7 @@ on:
   ## 打开这里就是一推送就执行一次
   push: 
   schedule:
-    - cron: '33 0 * * 1-5'
+    - cron: '23,45 0 * * 1-5'
 
 jobs:
   morning:
