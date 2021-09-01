@@ -1,7 +1,7 @@
 name: 'AfterNoon'
  
 on:
-  push:
+  ##push:
   schedule:
     - cron: '46 9 * * 1-5'
 
