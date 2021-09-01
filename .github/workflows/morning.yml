@@ -2,7 +2,7 @@ name: 'Morning'
  
 on:
   #此处打卡，即推送时就触发一次
-  #push:
+  push:
   schedule:
     #此处时间配置成0:16，是因为格林威治时间比+G8区时间晚8:00，实际执行时间是 0:16 + 8:00 = 8:16
     - cron: '16 0 * * 1-5'
@@ -33,5 +33,5 @@ jobs:
           subject: 打卡结果(${{env.REPORT_DATE}})
           body: file://result.txt
           to: 2330996055@qq.com
-          from: AfterNoon
+          from: Morning
           content_type: text/html
