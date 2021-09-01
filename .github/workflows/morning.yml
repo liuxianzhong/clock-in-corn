@@ -1,0 +1,37 @@
+name: 'Morning'
+ 
+on:
+  #此处打卡，即推送时就触发一次
+  push:
+  schedule:
+    #此处时间配置成0:16，是因为格林威治时间比+G8区时间晚8:00，实际执行时间是 0:16 + 8:00 = 8:16
+    - cron: '16 0 * * 1-5'
+
+jobs:
+  morning:
+    runs-on: ubuntu-latest
+    steps:
+    # 首先copy git仓库到虚拟机上,然后执行
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+    # 执行仓库中的脚本文件
+      - name: 'Run Shell'
+        run: bash ./clock_in.sh
+      # 获取格式化的日期并存入GitHub内置的环境变量中
+      - name: 'Get Date'
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+      # 使用现成的发送邮箱的GitHub action来发送邮件
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          # 这些是发送邮件需要配置的参数，更多详细的说明请访问具体的仓库
+          server_address: smtp.qq.com
+          server_port: 465
+          # 这些sectret的环境变量需要配置在setting中的secret下
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 打卡结果(${{env.REPORT_DATE}})
+          body: file://result.txt
+          to: 2330996055@qq.com
+          from: AfterNoon
+          content_type: text/html
