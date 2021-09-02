@@ -2,8 +2,8 @@ name: 'AfterNoon'
  
 on:
   ##push:
-  schedule:
-    - cron: '46 9 * * 1-5'
+  #schedule:
+    #- cron: '46 9 * * 1-5'
 
 jobs:
   afterNoon:
