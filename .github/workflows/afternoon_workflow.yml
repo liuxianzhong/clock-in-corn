@@ -31,5 +31,5 @@ jobs:
           subject: 打卡结果(${{env.REPORT_DATE}})
           body: file://result.txt
           to: 2330996055@qq.com
-          from: Morning
+          from: afternoonWorkflow
           content_type: text/html
